@@ -1,14 +1,17 @@
 (ns calculator.core
   (:import (java.util Scanner)))
 
+
 (def scan (Scanner. *in*))
 
+;;(let [val (.nextInt scan)]
+    ;;val)
 
+(defn add [] (println "add"))
+(defn sub [] (println "sub"))
+(defn mlt [] (println "mlt"))
+(defn div [] (println "div"))
 
-(defn get-op []
-  (println "Enter first val")
-  (let [val (.nextInt scan)]
-    val))
 
 (defn operation-menu []
   (println "choose from the options below: ")
@@ -16,12 +19,19 @@
   (println "b) - ")
   (println "c) * ")
   (println "d) / ")
-  (println "e) exit"))
+  (println "e) exit")
+  (let [operation (read-line)]
+    (cond
+      (= operation "a") (add)
+      (= operation "b") (sub)
+      (= operation "c") (mlt)
+      (= operation "d") (div)
+      :else "exit")))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Simple calculator app"
   [& args]
-  (println "Hello, World!"))
+  (operation-menu))
 
 (defn reload []
   (use 'calculator.core :reload))
