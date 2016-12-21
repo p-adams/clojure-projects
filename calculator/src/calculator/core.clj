@@ -1,17 +1,41 @@
 (ns calculator.core
   (:import (java.util Scanner)))
 
-
 (def scan (Scanner. *in*))
+(def fst "enter first value: ")
+(def scd "enter second value: ")
 
-;;(let [val (.nextInt scan)]
-    ;;val)
+(defn add []
+  (println fst)
+  (let [fst-val (.nextInt scan)]
+    (println scd)
+    (let [scd-val (.nextInt scan)]
+      (println (str
+                  "The sum is: " (+ fst-val scd-val))))))
 
-(defn add [] (println "add"))
-(defn sub [] (println "sub"))
-(defn mlt [] (println "mlt"))
-(defn div [] (println "div"))
+(defn sub []
+  (println fst)
+  (let [fst-val (.nextInt scan)]
+    (println scd)
+    (let [scd-val (.nextInt scan)]
+      (println (str
+                  "The difference is: " (- fst-val scd-val))))))
 
+(defn mlt []
+  (println fst)
+  (let [fst-val (.nextInt scan)]
+    (println scd)
+    (let [scd-val (.nextInt scan)]
+      (println (str
+                  "The product is: " (* fst-val scd-val))))))
+
+(defn div []
+  (println fst)
+  (let [fst-val (.nextInt scan)]
+    (println scd)
+    (let [scd-val (.nextInt scan)]
+      (println (str
+                  "The quotient is: " (/ fst-val scd-val))))))
 
 (defn operation-menu []
   (println "choose from the options below: ")
@@ -26,12 +50,9 @@
       (= operation "b") (sub)
       (= operation "c") (mlt)
       (= operation "d") (div)
-      :else "exit")))
+      :else "exiting program...")))
 
 (defn -main
   "Simple calculator app"
   [& args]
   (operation-menu))
-
-(defn reload []
-  (use 'calculator.core :reload))
