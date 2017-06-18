@@ -1,1 +1,0 @@
-web: java $JVM_OPTS -cp target/cljs-kanban.jar clojure.main -m cljs-kanban.server
